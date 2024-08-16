@@ -1,0 +1,19 @@
+version: '3'
+
+networks:
+  wechatauth:
+
+services:
+
+  wechatauth_backend:
+    image: wechatauth_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wechatauth_backend
+    command: python main.py
+    restart: always
+    ports:
+      - "8444:8444"
+    networks:
+      - wechatauth
